@@ -1,0 +1,61 @@
+Sub CreateLeafDiseasePresentation()
+    Dim PowerPointApp As Object
+    Dim Presentation As Object
+    Dim Slide As Object
+    
+    ' Create a new instance of PowerPoint application
+    Set PowerPointApp = CreateObject("PowerPoint.Application")
+    PowerPointApp.Visible = True
+    
+    ' Create a new presentation
+    Set Presentation = PowerPointApp.Presentations.Add
+    
+    ' Slide 1: Title Slide
+    Set Slide = Presentation.Slides.Add(1, 1) ' ppLayoutTitle
+    Slide.Shapes(1).TextFrame.TextRange.Text = "Leaf Diseases Classification using Basic CNN"
+    Slide.Shapes(2).TextFrame.TextRange.Text = "Leveraging AI for Agricultural Health"
+    
+    ' Slide 2: Introduction
+    Set Slide = Presentation.Slides.Add(2, 2) ' ppLayoutText
+    Slide.Shapes(1).TextFrame.TextRange.Text = "Introduction"
+    Slide.Shapes(2).TextFrame.TextRange.Text = "Overview of the importance of identifying and addressing leaf diseases in agriculture. Statement of the problem: Challenges faced by farmers in disease detection."
+    
+    ' Slide 3: Dataset
+    Set Slide = Presentation.Slides.Add(3, 2) ' ppLayoutText
+    Slide.Shapes(1).TextFrame.TextRange.Text = "Dataset"
+    Slide.Shapes(2).TextFrame.TextRange.Text = "Description of the dataset used for training the CNN model. Size of the dataset. Categories of leaf diseases included in the dataset."
+    
+    ' Slide 4: Data Preprocessing
+    Set Slide = Presentation.Slides.Add(4, 2) ' ppLayoutText
+    Slide.Shapes(1).TextFrame.TextRange.Text = "Data Preprocessing"
+    Slide.Shapes(2).TextFrame.TextRange.Text = "Explanation of the preprocessing steps applied to the images before feeding them into the CNN model. Techniques such as resizing, normalization, and augmentation."
+    
+    ' Slide 5: Model Architecture
+    Set Slide = Presentation.Slides.Add(5, 2) ' ppLayoutText
+    Slide.Shapes(1).TextFrame.TextRange.Text = "Model Architecture"
+    Slide.Shapes(2).TextFrame.TextRange.Text = "Overview of the CNN architecture used for leaf disease classification. Description of layers: Convolutional, pooling, fully connected. Number of layers and their configurations."
+    
+    ' Slide 6: Training
+    Set Slide = Presentation.Slides.Add(6, 2) ' ppLayoutText
+    Slide.Shapes(1).TextFrame.TextRange.Text = "Training"
+    Slide.Shapes(2).TextFrame.TextRange.Text = "Explanation of the training process. Splitting the dataset into training, validation, and testing sets. Training parameters: epochs, batch size, learning rate."
+    
+    ' Slide 7: Evaluation Metrics
+    Set Slide = Presentation.Slides.Add(7, 2) ' ppLayoutText
+    Slide.Shapes(1).TextFrame.TextRange.Text = "Evaluation Metrics"
+    Slide.Shapes(2).TextFrame.TextRange.Text = "Description of evaluation metrics used to assess the model's performance. Metrics such as accuracy, precision, recall, and F1-score. Importance of each metric in assessing the model's effectiveness."
+    
+    ' Slide 8: Conclusion
+    Set Slide = Presentation.Slides.Add(8, 2) ' ppLayoutText
+    Slide.Shapes(1).TextFrame.TextRange.Text = "Conclusion"
+    Slide.Shapes(2).TextFrame.TextRange.Text = "Recap of the key points discussed in the presentation. Importance of leveraging AI for agricultural health. Future directions: Further research, potential improvements, and scalability."
+    
+    ' Save the presentation
+    Presentation.SaveAs "Leaf_Disease_Classification_Presentation.pptx"
+    
+    ' Clean up
+    PowerPointApp.Quit
+    Set PowerPointApp = Nothing
+    Set Presentation = Nothing
+    Set Slide = Nothing
+End Sub
